@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Notes/Coins Counter</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		* {
+			font-family: arial;
+			box-sizing: border-box;
+		}
+		body {
+			margin: 0;
+			padding: 0;
+			background: url('img.jpg');
+			background-size: 100%;
+			background-repeat: no-repeat;
+		}
+		#chkmr {
+			position: fixed;
+			display: block;
+			left: 50%;
+			right: 50%;
+			transform: translate(-50%, -50%);
+			bottom: 2%;
+			width: 20%;
+			text-align: center;
+			background: white;
+			padding: 5px;
+			font-size: 12px;
+			color: black;
+			font-weight: bold;
+			font-weight: bold;
+			border:none;
+			border-radius: 6px;
+			color: black;
+			animation: anim 1s ease-in infinite;
+		}
+		.cnschk {
+			background: white;
+			width: 40%;
+			margin-left: auto;
+			margin-right: auto;
+			display: block;
+			padding: 20px;
+			border-radius: 6px;
+			margin-top: 3%;
+		}
+		#btns {
+			display: inline;
+			width: 90%;
+			background: transparent;
+			padding: 0px;
+
+		}
+		input[type=number] {
+			background: white;
+			border:1px solid #ccc;
+			padding: 5px;
+			border-radius: 6px;
+			outline: none;
+			width: 100%;
+		}
+		button {
+			padding: 5px;
+			border:1px solid #ccc;
+			background: white;
+			border-radius: 6px;
+			cursor: pointer;
+		}
+		#notes {
+			height: 0px;
+		}
+		#chk:hover {
+			background: green;
+			border-color: green;
+			color: white;
+		}
+		#rst:hover {
+			background: red;
+			border-color: red;
+			color: white;
+		}
+		@keyframes anim {
+			0% {
+				background: white;
+				color: black;
+			}
+			25% {
+				color: blue;
+			}
+			50% {
+				color: #7f8ff4;
+			}
+			75% {
+				color: green;
+			}
+			100% {
+				background: white;
+				color: black;
+			}
+		}
+		@media only screen and (max-width:500px) {
+			body {
+				background: url('imgMbl.jpg');
+				background-size: 100vw 100vh;
+				background-repeat: no-repeat;
+			}
+			#chkmr {
+				width: 60%;
+			}
+			.cnschk {
+				width: 85%;
+			}
+			input[type=number] {
+				padding: 10px;
+				font-size: 15px;
+			}
+			button {
+				padding: 10px;
+				font-size: 15px;
+			}
+		}
+	</style>
+</head>
+<body>
+
+<button id="chkmr" onclick="window.location.href = 'https://naveen6802.me';">Check More @naveen6802 !!</button>
+
+<div class="cnschk">
+
+	<form action="javascript:void(0);" style="margin: auto;display: block;">
+
+		<h2 style="color: #0984e3;">Notes/Coins counter for a given amount of money</h2>
+
+		<div style="width: 90%;"><input type="number" name="eid" id="eid" placeholder="Enter Amount..." pattern="[0-9]"><br/><br/></div>
+
+		<div id="btns">
+			<button id="chk" onclick="check()">Check</button>
+			<button id="rst">Reset</button>
+		</div>
+
+		<p id="notes">
+			<span id="twok"></span><br/>
+			<span id="fvh"></span><br/>
+			<span id="twoh"></span><br/>
+			<span id="hnd"></span><br/>
+			<span id="ffty"></span><br/>
+			<span id="twnt"></span><br/>
+			<span id="ten"></span><br/>
+			<span id="five"></span><br/>
+			<span id="two"></span><br/>
+			<span id="one"></span>
+		</p>
+
+	</form>
+
+</div>
+
+<script type="text/javascript">
+	var chk = document.getElementById('chk');
+	var rst = document.getElementById("rst");
+	function check() {
+		var ipt = document.getElementById("eid").value;
+		var twok = document.getElementById("twok");
+		var fvh = document.getElementById("fvh");
+		var twoh = document.getElementById("twoh");
+		var hnd = document.getElementById("hnd");
+		var ffty = document.getElementById("ffty");
+		var twnt = document.getElementById("twnt");
+		var ten = document.getElementById("ten");
+		var five = document.getElementById("five");
+		var two = document.getElementById("two");
+		var one = document.getElementById("one");
+		document.getElementById("notes").style.height = "100%";
+		if (ipt < 2000) {
+			twok.innerHTML = "<h4>These coins and notes in given below amount will be required to make the sum of "+ipt+" -</h4>Two Thousand: 0";
+		}
+		else {
+			var twokRem = ipt/2000;
+			twok.innerHTML = "<h4>These coins and notes in given below amount will be required to make the sum of "+ipt+" -</h4>Two Thousand: "+parseInt(twokRem);
+		}
+		var twokRemN = ipt%2000;
+		if (twokRemN < 500) {
+			fvh.innerHTML = "Five Hundred: 0";
+		}
+		else {
+			fvhRem = twokRemN/500;
+			fvh.innerHTML = "Five Hundred: "+parseInt(fvhRem);
+		}
+		var fvhRemN = twokRemN%500;
+		if (fvhRemN < 200) {
+			twoh.innerHTML = "Two Hundred: 0";
+		}
+		else {
+			twohRem = fvhRemN/200;
+			twoh.innerHTML = "Two Hundred: "+parseInt(twohRem);
+		}
+		var twohRemN = fvhRemN%200;
+		if (twohRemN < 100) {
+			hnd.innerHTML = "Hundred: 0";
+		}
+		else {
+			hndRem = twohRemN/100;
+			hnd.innerHTML = "Hundred: "+parseInt(hndRem);
+		}
+		var hndRemN = twohRemN%100;
+		if (hndRemN < 50) {
+			ffty.innerHTML = "Fifty: 0";
+		}
+		else {
+			fftyRem = hndRemN/50;
+			ffty.innerHTML = "Fifty: "+parseInt(fftyRem);
+		}
+		var fftyRemN = hndRemN%50;
+		if (fftyRemN < 20) {
+			twnt.innerHTML = "Twenty: 0";
+		}
+		else {
+			twntRem = fftyRemN/20;
+			twnt.innerHTML = "Twenty: "+parseInt(twntRem);
+		}
+		twntRemN = fftyRemN%20;
+		if(twntRemN < 10) {
+			ten.innerHTML = "Ten: 0";
+		}
+		else {
+			var tenRem = twntRemN/10;
+			ten.innerHTML = "Ten: "+parseInt(tenRem);
+		}
+		var tenRemN = twntRemN%10;
+		if(tenRemN < 5) {
+			five.innerHTML = "Five: 0";
+		}
+		else {
+			var fiveRem = tenRemN/5;
+			five.innerHTML = "Five: "+parseInt(fiveRem);
+		}
+		fiveRemN = tenRemN%5;
+		if(fiveRemN < 2) {
+			two.innerHTML = "Two: 0";
+		}
+		else {
+			var twoRem = fiveRemN/2;
+			two.innerHTML = "Two: "+parseInt(twoRem);
+		}
+		twoRemN = fiveRemN%2;
+		if (twoRemN < 1) {
+			one.innerHTML = "One: 0";
+		}
+		else {
+			var oneRem = twoRemN/1;
+			one.innerHTML = "One: "+parseInt(oneRem);
+		}
+		rst.addEventListener("click", function() {
+		document.getElementById("eid").value = "";
+		check();
+	});
+	};
+	
+</script>
+
+</body>
+</html>
