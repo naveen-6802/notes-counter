@@ -24,16 +24,19 @@
 			bottom: 2%;
 			width: 20%;
 			text-align: center;
-			background: white;
+			background: rgb(37,80,250);
 			padding: 5px;
 			font-size: 12px;
-			color: black;
+			color: #fff;
 			font-weight: bold;
 			font-weight: bold;
 			border:none;
-			border-radius: 6px;
-			color: black;
-			animation: anim 1s ease-in infinite;
+			border-left:6px solid #fff;
+			border-radius: 0px;
+			animation: anim 420ms infinite ease-in;
+		}
+		#chkmr:hover {
+			animation:no 0s;
 		}
 		.cnschk {
 			background: white;
@@ -81,22 +84,15 @@
 			color: white;
 		}
 		@keyframes anim {
-			0% {
+			from {
+				border-color:white;
+				color: white;
+				background: rgb(37,80,250);
+			}
+			to {
+				border-color: rgb(37,80,250);
+				color: rgb(37,80,250);
 				background: white;
-				color: black;
-			}
-			25% {
-				color: blue;
-			}
-			50% {
-				color: #7f8ff4;
-			}
-			75% {
-				color: green;
-			}
-			100% {
-				background: white;
-				color: black;
 			}
 		}
 		@media only screen and (max-width:500px) {
@@ -124,7 +120,7 @@
 </head>
 <body>
 
-<button id="chkmr" onclick="window.location.href = 'https://naveen6802.me';">Check More @naveen6802 !!</button>
+<button id="chkmr" onclick="window.location.href = 'https://naveen6802.me';">Check more @ naveen6802 !!</button>
 
 <div class="cnschk">
 
